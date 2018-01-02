@@ -1,25 +1,25 @@
 version: '3'
 services:
   odoo:
-    image: odoo11
+    build:
+      context: .
     volumes:
       - ./addons:/mnt/extra-addons
-      - ./odoo:/var/lib/odoo
-      - ./odoo.cfg:/etc/odoo/odoo.cfg
+      - odoo-web-data:/var/lib/odoo
     ports:
       - "8069:8069"
-      - "8071:8071"
     depends_on:
       - db
-    command: python3 /var/lib/odoo/odoo-bin -c /etc/odoo/odoo.cfg
   db:
     image: postgres:9.6
-    expose:
-      - "5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: odoo
-      POSTGRES_PASSWORD: odoo
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data/pgdata
+    expose:
+      - 5432
 volumes:
-  pgdata:
+  odoo-web-data:
+  odoo-db-data:
