@@ -10,5 +10,8 @@ RUN pip3 install wheel
 # Install custom dependencies
 COPY ./requirements.txt .
 RUN pip3 install -r requirements.txt
+
+COPY ./addons /mnt/extra-addons
+
 EXPOSE 8069 8071
 USER odoo
