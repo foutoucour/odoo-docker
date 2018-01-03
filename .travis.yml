@@ -1,0 +1,30 @@
+sudo: required
+
+services:
+  - docker
+
+env:
+    global:
+        - DOCKER_VERSION=17.05.0-ce
+        - DOCKER_COMPOSE_VERSION=1.14.0
+
+before_install:
+  # upgrade docker-engine to specific version
+  - sudo apt-get -o Dpkg::Options::="--force-confnew" install -y docker-engine=${DOCKER_VERSION}
+
+  # reinstall docker-compose at specific version
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+
+script:
+  - docker-compose run --rm odoo odoo
+    -c /etc/odoo/odoo.conf \
+    --db_host=db \
+    -r odoo \
+    -w odoo \
+    -d odoo \
+    -i main \
+    --stop-after-init \
+    --test-enable
