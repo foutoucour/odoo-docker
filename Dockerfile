@@ -11,6 +11,9 @@ RUN pip3 install wheel
 # Install custom dependencies
 COPY ./requirements.txt .
 RUN pip3 install -r requirements.txt
+# copy of addons so the docker is complete as it, doesn't require the mount from docker-compose
+# the mount in the docker-compose should be only in dev.
+COPY ./addons /mnt/extra-addons/
 COPY ./docker_files/run_test.sh /usr/local/bin/run_test.sh
 COPY ./docker_files/install_third_party_addons.sh /usr/local/bin/install_third_party_addons.sh
 
