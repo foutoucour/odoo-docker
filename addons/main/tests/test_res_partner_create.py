@@ -19,4 +19,4 @@ class TestResPartner(common.TransactionCase):
             'state_id': 1,
             'country_id': self.canada.id,
         })
-        self.assertEqual(name, partner.name)
+        self.assertEqual(1, partner.name)
