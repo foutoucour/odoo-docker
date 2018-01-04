@@ -13,12 +13,10 @@ class TestResPartner(common.TransactionCase):
         self.canada = self.country_pool.browse(39)
 
     def test_create(self):
+        name = 'tpartner'
         partner = self.partner_pool.create({
-            'name': 'tpartner',
+            'name': name,
             'state_id': 1,
             'country_id': self.canada.id,
         })
-        self.assertEqual(1, partner.id)
-
-    def test_fake(self):
-        self.assertEqual(1, 2)
+        self.assertEqual(name, partner.name)
