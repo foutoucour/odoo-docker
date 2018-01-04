@@ -12,7 +12,7 @@
         # odoo
         'product',
         # server-tools
-        # 'auditlog',
+        'auditlog',
         # 'disable_openerp_online',
         # 'admin_technical_features',
     ],
