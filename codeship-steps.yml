@@ -1,7 +1,0 @@
-- name: run_test
-  service: odoo
-  command: run_test.sh
-#- name: example_tagged_step
-#  tag: master
-#  service: odoo
-#  command: echo "Deploy here!"
