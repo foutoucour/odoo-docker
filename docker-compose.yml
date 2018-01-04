@@ -3,6 +3,7 @@ services:
   odoo:
     build:
       context: .
+      dockerfile: Dockerfile
     volumes:
       - ./addons:/mnt/extra-addons
       - odoo-web-data:/var/lib/odoo
