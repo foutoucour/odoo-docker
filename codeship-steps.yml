@@ -1,11 +1,7 @@
-- type: parallel
-  name: example_parallel_step
-  steps:
-    - service: odoo
-      command: printenv
-    - service: odoo
-      command: ls
-- name: example_tagged_step
-  tag: master
+- name: run_test
   service: odoo
-  command: echo "Deploy here!"
+  command: run_test.sh
+#- name: example_tagged_step
+#  tag: master
+#  service: odoo
+#  command: echo "Deploy here!"
