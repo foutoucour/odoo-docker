@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends git-core && \
     git config --global user.email "root@localhost" && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install wheel==0.30.0t pul
+RUN pip3 install wheel==0.30.0
 # Install custom dependencies
 COPY ./requirements.txt .
 RUN pip3 install -r requirements.txt
