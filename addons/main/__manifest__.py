@@ -11,6 +11,14 @@
     'depends': [
         # odoo
         'product',
+        'sale',
+        'web',
+        'website',
+        'website_sale',
+        'project',
+        'website_crm',
+        'website_blog',
+        'auth_signup',
         # server-tools
         'auditlog',
         # 'disable_openerp_online',
