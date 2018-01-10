@@ -4,4 +4,5 @@ services:
   - docker
 
 script:
+  - docker-compose run --rm odoo odoo --stop-after-init -i main
   - docker-compose run --rm odoo run_test.sh

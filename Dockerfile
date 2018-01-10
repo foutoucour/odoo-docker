@@ -10,7 +10,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends git-core && \
 
 RUN pip3 install wheel==0.30.0
 # Install custom dependencies
+
+COPY ./odoo.cfg /etc/odoo/odoo.conf
+COPY ./.coveragerc .
 COPY ./requirements.txt .
+
 RUN pip3 install -r requirements.txt
 # copy of addons so the docker is complete as it, doesn't require the mount from docker-compose
 # the mount in the docker-compose should be only in dev.
