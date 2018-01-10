@@ -11,7 +11,6 @@
     'depends': [
         # odoo
         'product',
-        'res_partner',
         'sale',
         'web',
         'website',
