@@ -1,0 +1,6 @@
+[run]
+include =
+    /mnt/extra-addons/*
+omit =
+    # omit everything in /usr
+    /usr/*

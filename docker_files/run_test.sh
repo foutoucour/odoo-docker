@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-odoo -c /etc/odoo/odoo.conf --db_host=db -r odoo -w odoo -d odoo -i main --stop-after-init --test-enable
+cd ${LOG_ODOO}
+pytest /mnt/extra-addons/ --junit-xml=/var/log/odoo/junit.xml --cov-branch --cov --cov-config /.coveragerc

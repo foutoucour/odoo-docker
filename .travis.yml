@@ -4,4 +4,6 @@ services:
   - docker
 
 script:
+  - docker-compose run --rm odoo odoo --stop-after-init -i main
+  - mkdir -p ./log && sudo chmod 777 ./log
   - docker-compose run --rm odoo run_test.sh
