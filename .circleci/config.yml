@@ -19,3 +19,7 @@ jobs:
        - run:
           name: Run Test
           command: docker-compose run --rm odoo run_test.sh
+
+       - store_test_results:
+          path: ./log
+
