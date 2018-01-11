@@ -13,8 +13,12 @@ jobs:
             mv ~/docker-compose /usr/local/bin/docker-compose
 
        - run:
-          name: build -- init databas
+          name: Build -- Init Database
           command: docker-compose run --rm odoo odoo --stop-after-init -i main
+
+       - run:
+          name: Setup Log Folder For Reports
+          command: mkdir -r ./log && chmod 777 ./log
 
        - run:
           name: Run Test
