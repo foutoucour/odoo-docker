@@ -20,3 +20,10 @@ class TestResPartner(common.TransactionCase):
             'country_id': self.canada.id,
         })
         self.assertEqual(name, partner.name)
+
+    def test_create_fail(self):
+        name = 'tpartner2'
+        partner = self.partner_pool.create({
+            'name': name,
+        })
+        self.assertEqual(1, partner.name)
