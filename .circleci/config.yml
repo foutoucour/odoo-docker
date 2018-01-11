@@ -18,7 +18,7 @@ jobs:
 
        - run:
           name: Setup Log Folder For Reports
-          command: mkdir -p ./log && chmod 777 ./log
+          command: mkdir -p ./log && sudo chmod 777 ./log
 
        - run:
           name: Run Test
