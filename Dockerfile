@@ -22,8 +22,11 @@ COPY ./addons /mnt/extra-addons/
 COPY ./docker_files/run_test.sh /usr/local/bin/run_test.sh
 COPY ./docker_files/install_third_party_addons.sh /usr/local/bin/install_third_party_addons.sh
 
-# thrid party addons
 ENV THIRD_PARTY_ADDONS /usr/lib/python3/dist-packages/odoo/addons
+# remove all the tests coming from the main framework. They tend to slow us down more than
+# anything.
+RUN rm -rf ${THIRD_PARTY_ADDONS}/*/tests
+# thrid party addons
 RUN install_third_party_addons.sh https://github.com/OCA/server-tools.git "${ODOO_VERSION}" "${THIRD_PARTY_ADDONS}"
 
 # required for pytest-odoo
