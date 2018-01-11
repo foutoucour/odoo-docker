@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-cd /var/log/odoo
+cd ${LOG_ODOO}
 pytest /mnt/extra-addons/ --junit-xml=/var/log/odoo/junit.xml --cov-branch --cov --cov-config /.coveragerc

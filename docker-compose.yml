@@ -6,6 +6,9 @@ services:
       dockerfile: Dockerfile
     volumes:
       - odoo-web-data:/var/lib/odoo
+      - ./log:/var/log/odoo
+    environment:
+      - LOG_ODOO=/var/log/odoo
     ports:
       - "8069:8069"
     depends_on:
