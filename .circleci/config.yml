@@ -29,7 +29,7 @@ jobs:
 
        - run:
           name: Codacy Coverage
-          command: python-codacy-coverage -r ./log/coverage.xml
+          command: /usr/local/bin/python-codacy-coverage -r ./log/coverage.xml
 
 
 
