@@ -27,3 +27,9 @@ jobs:
        - store_test_results:
           path: ./log
 
+       - run:
+          name: Codacy Coverage
+          command: python-codacy-coverage -r ./log/coverage.xml
+
+
+
