@@ -24,12 +24,13 @@ jobs:
           name: Run Test
           command: docker-compose run --rm odoo run_test.sh
 
-       - store_test_results:
-          path: ./log
-
        - run:
           name: Codacy Coverage
           command: /usr/local/bin/python-codacy-coverage -r ./log/coverage.xml
+
+       - store_test_results:
+          path: ./log
+
 
 
 
