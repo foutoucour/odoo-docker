@@ -4,6 +4,14 @@ from odoo.tests import common
 logger = logging.getLogger(__name__)
 
 
+def test_branches(i):
+    """Simple function with 2 branches"""
+    if i == 1:
+        res = True
+    if i == 2:
+        res = False
+    return res
+
 class TestResPartner(common.TransactionCase):
     """Use case of creation of a partner."""
     def setUp(self):
@@ -20,3 +28,7 @@ class TestResPartner(common.TransactionCase):
             'country_id': self.canada.id,
         })
         self.assertEqual(name, partner.name)
+
+    def test_branches(self):
+        """Test to see how branches are reported in cov reports"""
+        self.assertTrue(test_branches(1))
