@@ -1,7 +1,7 @@
 # aeroolib
 git+https://github.com/savoirfairelinux/aeroolib.git@ddufresne_python3
 Babel==2.3.4
-decorator==4.1.2
+decorator==4.2.1
 docutils==0.14
 ebaysdk==2.1.5
 feedparser==5.1.3
